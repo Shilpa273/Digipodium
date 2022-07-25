@@ -1,0 +1,18 @@
+from turtle import *
+speed('slowest')
+bgcolor('white')
+pencolor('maroon')
+pensize(10)
+
+forward(90)
+left(130)
+forward(90)
+right(80)
+forward(90)
+left(130)
+forward(90)
+left(50)
+forward(90)
+right(30)
+forward(90)
+mainloop()
