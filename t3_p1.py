@@ -2,10 +2,14 @@ from turtle import *
 speed('slowest')
 pencolor('green')
 bgcolor('black')
-pensize(10)
+pensize(8)
 
-for i in range(23):
-    forward(50/12)
-    left(90/8)
-    right(90/3)
+
+for i in range(4):
+    forward(100)
+    left(90)
+    forward(100)
+    left(90)
+    forward(100)
+    right(90)
 mainloop()
