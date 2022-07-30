@@ -1,14 +1,11 @@
 from turtle import *
-speed('fast')
-bgcolor('white')
-pencolor('maroon')
-pensize(10)
+speed('fastest')
+bgcolor('black')
 
-forward(100)
-left(90)
-forward(100)
-left(90)
-forward(100)
-right(90)
+for i in range(240):
+    color('cyan')
+    circle(i)
+    left(5)
+    
 
 mainloop()

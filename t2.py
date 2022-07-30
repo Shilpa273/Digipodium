@@ -1,4 +1,9 @@
 from turtle import*
+
+pencolor('pink')
+bgcolor('black')
+fillcolor('blue')
+begin_fill()
 forward(80)
 left(36)
 forward(80)
@@ -18,5 +23,6 @@ left(36)
 forward(80)
 left(36)
 forward(80)
+end_fill()
 mainloop()
 
