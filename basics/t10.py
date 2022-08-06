@@ -1,4 +1,4 @@
-from ctypes import wstring_at
+
 from turtle import *
 speed('fastest')
 bgcolor('black')
