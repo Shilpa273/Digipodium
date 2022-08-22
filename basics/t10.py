@@ -1,10 +1,10 @@
 
 from turtle import *
-speed('fastest')
+speed('slow')
 bgcolor('black')
 
 for i in range(200):
-  color('lime')
+  color('yellow')
   forward(i*2)
   left(220)
 
