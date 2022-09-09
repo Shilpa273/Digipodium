@@ -26,5 +26,4 @@ def player_control():
         p.y +=  -speed
     else:
         p.angle = 0 
-
-        pgzrun.go() # outside the function
+pgzrun.go() # outside the function

@@ -1,19 +1,79 @@
 import pgzrun
+from random import randint
+
 
 HEIGHT = 500
 WIDTH = 600
 
-p = Actor('ironman',(100,100))
-speed = 3
+ps = 3 # player speed
+es = 1 # enemy speed
+
+game_over = False # switch
+game_started = False # switch
+
+center = (WIDTH//2, HEIGHT//2) #   points to center coordinates of screen
+bg = Actor('bk', center = (0,0))
+p = Actor('ironman',pos=(100,100))
+e = Actor('zombie',pos =(400,100))
+
+def show_screen_1():
+
+    bg.draw()
+    screen.draw.text('Our game' , center = center,fontsize= 100,color='red')
+    screen.draw.text('press space to start',center= (center[0],center[1]+100),fontsize = 50, color = 'red') 
+
+def show_game_screen():
+    bg.draw()
+    p.draw()
+    e.draw()
+
+def show_game_over():
+    bg.draw()
+    screen.draw.text('Game over',center = center,fontsize= 100, color = 'red')
+
 def draw():
     screen.clear()
-    p.draw()
+    if not game_started:
+      show_screen_1()
+    elif game_started and not game_over:
+        show_game_screen()
+    elif game_over:    
+        show_game_over() 
 
 def update():
-   if keyboard.DOWN:
-    p.y += speed
-   if keyboard.UP: 
-    p.y += -speed  
+    global game_started
+    if keyboard.SPACE and not game_started:
+        game_started = True  
+        bg.image = 'bg1'  
+    if game_started and not game_over:
+        player_control() 
+        enemy_control()
 
+def player_control():   
+    if keyboard.RIGHT and not p.right > WIDTH:
+        p.x += ps
+        p.angle = -10
+    elif keyboard.LEFT and not p.left < 0:
+        p.x +=  -ps
+        p.angle = 10
+    elif keyboard.DOWN and not p.bottom > HEIGHT:
+        p.y += ps
+    elif keyboard.UP and not p.top < 0:
+        p.y +=  -ps
+    else:
+        p.angle = 0       
+
+def enemy_control():
+    global game_over
+    if p.x > e.x:
+        e.x += es
+    if p.x < e.x:
+        e.x += -es
+    if p.y > e.y:
+        e.y += es
+    if p.y < e.y:
+        e.y += -es                     
+    if p.colliderect(e):
+       game_over = True
 
 pgzrun.go()    
