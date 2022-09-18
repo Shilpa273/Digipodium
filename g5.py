@@ -8,7 +8,7 @@ level = 1
 lives = 3
 score = 0
 bg = Actor('bg1')
-p = Actor('ironman',(100,280))
+p = Actor('player',(100,280))
 
 enemies = []
 bullets = []
@@ -62,7 +62,7 @@ def  move_enemies():
                 bullets.remove(bullet)
                 score = score + 1
         if enemy.colliderect(p):
-             exits()
+               exits()
 
 def draw_text():
     screen.draw.text("Level" + str(level), (0,0), color = 'red')
