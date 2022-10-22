@@ -18,7 +18,4 @@ for i in range(4):
     
     lt(5)
     
-  
-        
-
 mainloop()

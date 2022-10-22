@@ -1,6 +1,7 @@
 
 from telegram.ext import *
 import keys
+from  news_bot_api import get_news
 
 print('starting up bot...')
 
@@ -16,13 +17,19 @@ def custom_command(update, context):
     update.message.reply_text('This is a custom command !')
     
 def handle_response(text: str) -> str:
-    if 'hello' in text:
+    if 'hello' in text.lower().strip():
         return 'Hey there !'
 
-    if 'how are you' in text:
-        return 'I am good, thanks!'    
+    if 'how are you' in text.lower().strip():
+        return 'I am good, thanks!'
 
-    return 'Idk'    
+    #if 'weather' in text.lower().strip():
+       # return '🏥' + '/n🏥'  .join(get_weather())  
+
+    if 'news' in text .lower().strip():
+        return '📰' + '\n 📰' .join(get_news()) 
+
+    return 'Idk, Try other query!'  
 
 
 def handle_message(update, context):
@@ -45,7 +52,7 @@ def handle_message(update, context):
 def error(update, context):
     print(f'Update {update} caused error: {context.error}') 
 
-
+# run the program
 if __name__=='__main__':
     updater = Updater(keys.token,use_context=True)
     dp = updater.dispatcher
