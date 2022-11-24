@@ -11,7 +11,7 @@ while webcam.isOpened():
         break
     cv2.imshow("webcam",frame)  #frame is a numpy array so we don't use print()
     #press esc to exit
-    if cv2.waitKey(5) == 27: # 1ms delay
+    if cv2.waitKey(1) == 27: # 1ms delay
         break
-    webcam.release()
-    cv2.destroyAllWindows()
+webcam.release()
+cv2.destroyAllWindows()
